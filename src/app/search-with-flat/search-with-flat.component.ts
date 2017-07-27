@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,   FormGroup,FormBuilder } from '@angular/forms';
+import { FormControl,FormGroup,FormBuilder } from '@angular/forms';
 import { SearchService } from '../services/search.service';
 import 'rxjs/Rx';
 
 @Component({
   selector: 'app-search-with-flat',
   templateUrl: './search-with-flat.component.html',
-  styleUrls: ['./search-with-flat.component.css']
+  styleUrls: ['./search-with-flat.component.css'],
+  providers:[SearchService]
 })
 export class SearchWithFlatComponent implements OnInit {
   searchField: FormControl;
@@ -21,7 +22,8 @@ export class SearchWithFlatComponent implements OnInit {
           .debounceTime(400)
             .flatMap(term => this.searchService.search(term))
             .subscribe((result:any) => {
-                this.result = result.artists.items
+              console.log(result)
+                // this.result = result.artists.items
             });
   }
 

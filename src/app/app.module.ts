@@ -25,7 +25,8 @@ import { ViewPageComponent } from './view-page/view-page.component';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
